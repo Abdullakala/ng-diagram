@@ -2,8 +2,8 @@
   "name": "ng-diagram-package",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "cross-env NODE_ENV=development turbo watch dev --filter=!docs",
+    "build": "cross-env TURBO_TELEMETRY_DISABLED=1 turbo run build",
+    "dev": "cross-env TURBO_TELEMETRY_DISABLED=1 NODE_ENV=development turbo watch dev --filter=!docs",
     "dev:mobile": "cross-env NODE_ENV=development turbo watch dev --filter=!docs -- --host 0.0.0.0 --port 6011",
     "docs:dev": "cross-env NODE_ENV=development turbo watch docs:dev",
     "docs:build": "turbo run build --filter=docs",
