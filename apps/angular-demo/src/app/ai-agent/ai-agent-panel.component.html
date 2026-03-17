@@ -1,0 +1,66 @@
+<div class="ai-agent" [class.open]="isOpen()" [class.closed]="!isOpen()">
+  <!-- Toggle Button -->
+  <button class="toggle-btn" (click)="togglePanel()" [attr.aria-label]="isOpen() ? 'Close AI Agent' : 'Open AI Agent'">
+    @if (isOpen()) {
+      <span class="icon">✕</span>
+    } @else {
+      <span class="icon">🤖</span>
+      <span class="badge">AI</span>
+    }
+  </button>
+
+  @if (isOpen()) {
+    <div class="panel">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-title">
+          <span class="header-icon">🤖</span>
+          <span>AI Development Agent</span>
+        </div>
+        <div class="header-stats">
+          <span class="stat" title="Nodes">📦 {{ nodeCount() }}</span>
+          <span class="stat" title="Edges">🔗 {{ edgeCount() }}</span>
+          <span class="stat" title="Selected">✓ {{ selectedCount() }}</span>
+        </div>
+        <button class="clear-btn" (click)="clearHistory()" title="Clear chat history">🗑️</button>
+      </div>
+
+      <!-- Messages -->
+      <div class="messages" #messagesContainer>
+        @for (msg of messages(); track msg.timestamp.getTime() + $index) {
+          <div class="message" [class.user]="msg.role === 'user'" [class.agent]="msg.role === 'agent'">
+            <div class="message-role">
+              {{ msg.role === 'user' ? '👤' : '🤖' }}
+            </div>
+            <div class="message-content">
+              <pre>{{ msg.content }}</pre>
+              <span class="message-time">{{ msg.timestamp | date: 'HH:mm' }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Quick Suggestions -->
+      <div class="suggestions">
+        @for (suggestion of suggestions(); track suggestion) {
+          <button class="suggestion-chip" (click)="onSuggestionClick(suggestion)">
+            {{ suggestion }}
+          </button>
+        }
+      </div>
+
+      <!-- Input -->
+      <div class="input-area">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Type a command... / اكتب أمراً..."
+          [ngModel]="inputText()"
+          (ngModelChange)="inputText.set($event)"
+          (keydown)="onKeyDown($event)"
+        />
+        <button class="send-btn" (click)="onSubmit()" [disabled]="!inputText().trim()">➤</button>
+      </div>
+    </div>
+  }
+</div>
