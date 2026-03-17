@@ -18,7 +18,9 @@ $input-bd: #3a3b5c;
   height: 100vh;
   z-index: 1000;
   pointer-events: none;
-  * { pointer-events: auto; }
+  * {
+    pointer-events: auto;
+  }
 }
 
 .ai-agent {
@@ -26,7 +28,10 @@ $input-bd: #3a3b5c;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  &.closed .toggle-btn { position: relative; margin: 16px 16px 0 0; }
+  &.closed .toggle-btn {
+    position: relative;
+    margin: 16px 16px 0 0;
+  }
 }
 
 .toggle-btn {
@@ -45,8 +50,13 @@ $input-bd: #3a3b5c;
   transition: all 0.2s;
   z-index: 1001;
   flex-shrink: 0;
-  &:hover { background: $accent-h; transform: scale(1.05); }
-  .icon { font-size: 20px; }
+  &:hover {
+    background: $accent-h;
+    transform: scale(1.05);
+  }
+  .icon {
+    font-size: 20px;
+  }
   .badge {
     position: absolute;
     top: -4px;
@@ -68,7 +78,9 @@ $input-bd: #3a3b5c;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  @media (max-width: 768px) { width: 100vw; }
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
 }
 
 .header {
@@ -88,7 +100,9 @@ $input-bd: #3a3b5c;
     font-size: 14px;
     flex: 1;
     white-space: nowrap;
-    .header-icon { font-size: 20px; }
+    .header-icon {
+      font-size: 20px;
+    }
   }
   .header-stats {
     display: flex;
@@ -110,7 +124,9 @@ $input-bd: #3a3b5c;
     border-radius: 4px;
     opacity: 0.6;
     transition: opacity 0.2s;
-    &:hover { opacity: 1; }
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -121,8 +137,13 @@ $input-bd: #3a3b5c;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  &::-webkit-scrollbar { width: 6px; }
-  &::-webkit-scrollbar-thumb { background: $border; border-radius: 3px; }
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $border;
+    border-radius: 3px;
+  }
 }
 
 .message {
@@ -131,7 +152,10 @@ $input-bd: #3a3b5c;
   animation: fadeIn 0.2s ease;
   &.user {
     flex-direction: row-reverse;
-    .message-content { background: $user-bg; border-radius: 12px 4px 12px 12px; }
+    .message-content {
+      background: $user-bg;
+      border-radius: 12px 4px 12px 12px;
+    }
   }
   &.agent .message-content {
     background: $agent-bg;
@@ -159,7 +183,13 @@ $input-bd: #3a3b5c;
       color: $txt;
       line-height: 1.5;
     }
-    .message-time { display: block; font-size: 10px; color: $txt2; margin-top: 4px; text-align: right; }
+    .message-time {
+      display: block;
+      font-size: 10px;
+      color: $txt2;
+      margin-top: 4px;
+      text-align: right;
+    }
   }
 }
 
@@ -183,7 +213,11 @@ $input-bd: #3a3b5c;
   white-space: nowrap;
   transition: all 0.2s;
   font-family: 'Poppins', sans-serif;
-  &:hover { background: $accent; color: white; border-color: $accent; }
+  &:hover {
+    background: $accent;
+    color: white;
+    border-color: $accent;
+  }
 }
 
 .input-area {
@@ -206,8 +240,12 @@ $input-bd: #3a3b5c;
   font-family: 'Poppins', sans-serif;
   outline: none;
   transition: border-color 0.2s;
-  &::placeholder { color: $txt2; }
-  &:focus { border-color: $accent; }
+  &::placeholder {
+    color: $txt2;
+  }
+  &:focus {
+    border-color: $accent;
+  }
 }
 
 .send-btn {
@@ -223,11 +261,22 @@ $input-bd: #3a3b5c;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  &:hover:not(:disabled) { background: $accent-h; }
-  &:disabled { opacity: 0.4; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    background: $accent-h;
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

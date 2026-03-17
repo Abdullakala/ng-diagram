@@ -27,7 +27,7 @@
 
       <!-- Messages -->
       <div class="messages" #messagesContainer>
-        @for (msg of messages(); track msg.timestamp.getTime() + $index) {
+        @for (msg of messages(); track $index) {
           <div class="message" [class.user]="msg.role === 'user'" [class.agent]="msg.role === 'agent'">
             <div class="message-role">
               {{ msg.role === 'user' ? '👤' : '🤖' }}
