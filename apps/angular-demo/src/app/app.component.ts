@@ -44,6 +44,7 @@ import { CustomPolylineEdgeComponent } from './edge-template/custom-polyline-edg
 import { DashedEdgeComponent } from './edge-template/dashed-edge/dashed-edge.component';
 import { LabelledEdgeComponent } from './edge-template/labelled-edge/labelled-edge.component';
 import { ImageMinimapNodeComponent } from './minimap-node-template/image-minimap-node/image-minimap-node.component';
+import { AiAgentPanelComponent } from './ai-agent/ai-agent-panel.component';
 import { PaletteComponent } from './palette/palette.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -56,6 +57,7 @@ const LOCAL_STORAGE_KEY = 'ng-diagram-demo';
   imports: [
     ToolbarComponent,
     PaletteComponent,
+    AiAgentPanelComponent,
     NgDiagramComponent,
     NgDiagramBackgroundComponent,
     NgDiagramMinimapComponent,
